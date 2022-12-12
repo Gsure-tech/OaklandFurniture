@@ -14,8 +14,7 @@ public class UserController {
     private final UserService userService;
 
     @PutMapping("/user/edit-profile/{userId}")
-    public ResponseEntity<EditProfileRequestDto> editProfile(@PathVariable Long userId,
-                                                             @RequestBody EditProfileRequestDto editProfileRequestDto){
+    public ResponseEntity<EditProfileRequestDto> editProfile(@PathVariable Long userId, @RequestBody EditProfileRequestDto editProfileRequestDto){
         return new ResponseEntity<>(userService.editProfile(userId, editProfileRequestDto), HttpStatus.OK);
     }
 }
