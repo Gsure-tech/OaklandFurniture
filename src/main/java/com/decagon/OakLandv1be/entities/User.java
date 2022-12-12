@@ -3,7 +3,6 @@ package com.decagon.OakLandv1be.entities;
 import com.decagon.OakLandv1be.enums.Gender;
 import com.decagon.OakLandv1be.enums.Role;
 import lombok.*;
-import org.apache.catalina.User;
 
 import javax.persistence.*;
 
@@ -13,8 +12,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "person_tbl")
-public class Person extends BaseEntity{
+@Table(name = "users_tbl")
+public class User extends BaseEntity{
 
     private String firstName;
     private String lastName;
@@ -34,10 +33,10 @@ public class Person extends BaseEntity{
     @Embedded
     private Address address;
 
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
     private Admin admin;
 
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
     private Customer customer;
 
 }
