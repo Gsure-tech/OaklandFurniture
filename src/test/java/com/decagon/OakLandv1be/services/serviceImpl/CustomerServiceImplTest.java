@@ -1,8 +1,8 @@
 package com.decagon.OakLandv1be.services.serviceImpl;
 
 import com.decagon.OakLandv1be.dto.EditProfileRequestDto;
-import com.decagon.OakLandv1be.entities.User;
-import com.decagon.OakLandv1be.repositries.UserRepository;
+import com.decagon.OakLandv1be.entities.Person;
+import com.decagon.OakLandv1be.repositries.PersonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -16,21 +16,21 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
-class UserServiceImplTest {
+class CustomerServiceImplTest {
 
     @Mock
-    UserRepository userRepository;
+    PersonRepository personRepository;
 
     @InjectMocks
-    UserServiceImpl userService;
+    CustomerServiceImpl customerService;
 
-    User user;
+    Person person;
     EditProfileRequestDto editProfileRequestDto;
 
     @BeforeEach
     void init() {
         MockitoAnnotations.openMocks(this);
-        user = new User();
+        person = new Person();
 
         editProfileRequestDto = new EditProfileRequestDto();
         editProfileRequestDto.setFirstName("Mary");
@@ -38,12 +38,12 @@ class UserServiceImplTest {
 
     @Test
     void editProfile() {
-        when(userRepository.findById(anyLong()))
-                .thenReturn(Optional.of(user));
-        when(userRepository.save(any(User.class)))
-                .thenReturn(user);
+        when(personRepository.findById(anyLong()))
+                .thenReturn(Optional.of(person));
+        when(personRepository.save(any(Person.class)))
+                .thenReturn(person);
 
-        EditProfileRequestDto userProfile = userService.editProfile(1L, editProfileRequestDto);
+        EditProfileRequestDto userProfile = customerService.editProfile(1L, editProfileRequestDto);
         assertNotNull(userProfile);
         assertEquals("Mary", userProfile.getFirstName());
     }

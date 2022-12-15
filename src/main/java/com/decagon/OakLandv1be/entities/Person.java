@@ -12,8 +12,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "users_tbl")
-public class User extends BaseEntity{
+@Table(name = "person_tbl")
+public class Person extends BaseEntity{
 
     private String firstName;
     private String lastName;
@@ -33,10 +33,10 @@ public class User extends BaseEntity{
     @Embedded
     private Address address;
 
-    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private Admin admin;
 
-    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private Customer customer;
 
 }

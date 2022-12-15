@@ -14,8 +14,8 @@ import javax.persistence.*;
 public class Customer extends BaseEntity{
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_id")
-    private User users;
+    @JoinColumn(name = "person_id")
+    private Person person;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="cart_id")
