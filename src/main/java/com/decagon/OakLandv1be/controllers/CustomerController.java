@@ -32,7 +32,7 @@ CustomerController {
     }
 
     @PutMapping("/customer/edit-profile/{customerId}")
-    public ResponseEntity<EditProfileRequestDto> editProfile(@PathVariable Long customerId, @RequestBody EditProfileRequestDto editProfileRequestDto){
+    public ResponseEntity<EditProfileRequestDto> editProfile(@PathVariable Long customerId, @Valid @RequestBody EditProfileRequestDto editProfileRequestDto){
         return new ResponseEntity<>(customerService.editProfile(customerId, editProfileRequestDto), HttpStatus.OK);
     }
 }
