@@ -5,15 +5,15 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductNotFoundException extends RuntimeException{
+public class InvalidTokenException extends RuntimeException{
     private String debugMessage;
 
-    public ProductNotFoundException(String message) {
+    public InvalidTokenException(String message) {
 
         super(message);
     }
 
-    public ProductNotFoundException(String message, String debugMessage) {
+    public InvalidTokenException(String message, String debugMessage) {
         super(message);
         this.debugMessage = debugMessage;
     }
